@@ -1,60 +1,79 @@
 .site-header {
-  position: sticky; /* stays at top when scrolling */
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
   width: 100%;
-  background: #0b2840;
+  background: #ffffff;
   color: #ffffff;
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
 }
 
-/* inner content is centered but bar spans full width */
 .header-inner {
-  max-width: 1100px;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 0.75rem 1.5rem;
-
+  padding: 1rem 2.5rem;
+  min-height: 80px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
-/* nav */
+/* left section */
+
+.header-left {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.header-logo img {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+/* center nav fills remaining space */
 
 .header-nav {
+  flex: 1 1 auto;
   display: flex;
-  gap: 1.5rem;
+  justify-content: center;
+  gap: 6rem;
 }
 
 .header-nav a {
-  color: #e5e7eb;
+  color: #10295b;
   text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0;
 }
 
 .header-nav a:hover {
   color: #ffffff;
 }
 
-/* right side */
+/* right section */
 
-.header-actions {
+.header-right {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
 }
 
+/* main cta button */
+
 .header-cta {
-  padding: 0.45rem 1.1rem;
+  padding: 0.65rem 1.9rem;
   border-radius: 999px;
   background: #ff9a3c;
   color: #0b2840;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 0.98rem;
   white-space: nowrap;
 }
 
@@ -62,17 +81,38 @@
   filter: brightness(1.05);
 }
 
-/* simple mobile layout */
+/* basic responsive tweaks */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .header-inner {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    gap: 1rem;
   }
 
   .header-nav {
+    gap: 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .header-inner {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .header-left {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .header-nav {
+    order: 3;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .header-right {
+    order: 2;
   }
 }
